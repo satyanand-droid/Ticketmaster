@@ -3,6 +3,8 @@ package com.ticketmaster.book.ticket.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "users")
 public class User {
@@ -17,12 +19,16 @@ public class User {
     @Column(nullable = false, unique = true)  // Email should be unique
     private String email;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    List<Booking> booking;
+
     public User() {
     }
 
-    public User(String username, String email) {
+    public User(String username, String email, List<Booking> booking) {
         this.username = username;
         this.email = email;
+        this.booking=booking;
     }
 
     // Getters and Setters
@@ -48,5 +54,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List<Booking> getBooking() {
+        return booking;
+    }
+
+    public void setBooking(List<Booking> booking) {
+        this.booking = booking;
     }
 }
