@@ -23,9 +23,9 @@ public class Ticket {
     @Column(name="price", nullable = false)
     private Double price;
 
-    @ManyToOne
-    @JoinColumn(name = "booking_id", nullable = true)
-    private Booking booking;
+  @ManyToOne
+  @JoinColumn(name = "booking_id", nullable = true)
+  private Booking booking;
 
     public Ticket() {
     }

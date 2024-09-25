@@ -8,10 +8,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class TicketService {
 
-    @Autowired
-    TicketRepository ticketRepository;
+  @Autowired TicketRepository ticketRepository;
 
-    public Ticket createTicket(Ticket ticket){
-        return ticketRepository.save(ticket);
-    }
+  public Ticket createTicket(Ticket ticket) {
+    return ticketRepository.save(ticket);
+  }
 }

@@ -19,8 +19,8 @@ public class User {
     @Column(nullable = false, unique = true)  // Email should be unique
     private String email;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    List<Booking> booking;
+  @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+  List<Booking> booking;
 
     public User() {
     }
