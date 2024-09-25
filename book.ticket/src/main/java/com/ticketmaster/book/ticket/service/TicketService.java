@@ -13,4 +13,8 @@ public class TicketService {
   public Ticket createTicket(Ticket ticket) {
     return ticketRepository.save(ticket);
   }
+
+  public Ticket getTicket(Long id){
+    return ticketRepository.findById(id).orElse(null);
+  }
 }

@@ -27,6 +27,9 @@ public class Ticket {
   @JoinColumn(name = "booking_id", nullable = true)
   private Booking booking;
 
+  @Version
+  private Long version;
+
     public Ticket() {
     }
 
@@ -85,5 +88,13 @@ public class Ticket {
 
     public void setBooking(Booking booking) {
         this.booking = booking;
+    }
+
+    public Long getVersion() {
+        return version;
+    }
+
+    public void setVersion(Long version) {
+        this.version = version;
     }
 }

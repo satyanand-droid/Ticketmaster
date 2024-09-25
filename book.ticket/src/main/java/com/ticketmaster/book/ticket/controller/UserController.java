@@ -1,5 +1,6 @@
 package com.ticketmaster.book.ticket.controller;
 
+import com.ticketmaster.book.ticket.DTO.UserDTO;
 import com.ticketmaster.book.ticket.entity.User;
 import com.ticketmaster.book.ticket.service.UserService;
 import jakarta.websocket.server.PathParam;
@@ -18,7 +19,7 @@ public class UserController {
   }
 
   @GetMapping("/{id}")
-  public User getUserById(@PathVariable Long id) {
+  public UserDTO getUserById(@PathVariable Long id) {
     return userService.getUser(id);
   }
 }

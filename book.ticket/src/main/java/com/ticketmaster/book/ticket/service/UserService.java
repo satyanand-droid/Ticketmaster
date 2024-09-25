@@ -1,5 +1,6 @@
 package com.ticketmaster.book.ticket.service;
 
+import com.ticketmaster.book.ticket.DTO.UserDTO;
 import com.ticketmaster.book.ticket.entity.User;
 import com.ticketmaster.book.ticket.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +17,13 @@ public class UserService {
     return userRepository.save(user);
   }
 
-  public User getUser(Long id) {
+  public UserDTO getUser(Long id) {
+    UserDTO userDTO= new UserDTO();
     Optional<User> user = userRepository.findById(id);
-    return user.orElse(null);
+    if(user.isPresent()){
+          userDTO.setEmail(user.get().getEmail());
+          userDTO.setUsername(user.get().getUsername());
+    }
+    return userDTO;
   }
 }
