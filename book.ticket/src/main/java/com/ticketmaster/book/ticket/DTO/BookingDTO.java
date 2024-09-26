@@ -23,4 +23,6 @@ public class BookingDTO {
     public void setTickets(List<TicketDTO> tickets) {
         this.tickets = tickets;
     }
+
+
 }

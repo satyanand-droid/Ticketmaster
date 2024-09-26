@@ -1,5 +1,6 @@
 package com.ticketmaster.book.ticket.controller;
 
+import com.ticketmaster.book.ticket.DTO.TicketDTO;
 import com.ticketmaster.book.ticket.entity.Ticket;
 import com.ticketmaster.book.ticket.service.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ public class TicketController {
   }
 
   @GetMapping("/{id}")
-  public Ticket getTicket(@PathVariable Long id){
+  public TicketDTO getTicket(@PathVariable Long id){
     return ticketService.getTicket(id);
   }
 }

@@ -1,5 +1,6 @@
 package com.ticketmaster.book.ticket.controller;
 
+import com.ticketmaster.book.ticket.DTO.BookingDTO;
 import com.ticketmaster.book.ticket.service.BookingService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,5 +21,10 @@ public class BookingController {
   public String confirmTicket(@PathVariable Long bookingId) {
     bookingService.confirmTicket(bookingId);
     return "booking confirmed successfully";
+  }
+
+  @GetMapping("/booking/{bookingId}")
+  public BookingDTO findBooking(@PathVariable Long bookingId) {
+    return bookingService.getBooking(bookingId);
   }
 }
