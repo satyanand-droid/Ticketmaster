@@ -2,6 +2,7 @@ package com.ticketmaster.book.ticket.entity;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -13,7 +14,7 @@ public class Booking {
   private Long id;
 
   @OneToMany(mappedBy = "booking", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-  private List<Ticket> tickets;
+  private List<Ticket> tickets = new ArrayList<>();
 
   @Enumerated(EnumType.STRING)
   @Column(name = "status", nullable = false)
@@ -62,5 +63,10 @@ public class Booking {
 
   public void setUser(User user) {
     this.user = user;
+  }
+
+  public void addTicket(Ticket ticket) {
+    tickets.add(ticket);
+    ticket.setBooking(this);
   }
 }
